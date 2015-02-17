@@ -1,0 +1,52 @@
+
+Section:        Plugins
+
+Topic:          Introduction
+
+        A number of plug-ins are available for use within ND+.
+
+                o <Ditaa> - Diagrams Through Ascii Art.
+
+                o <Mscgen> - Message Sequence Char Generator.
+
+                o <SDEdit> - Quick Sequence Diagram Editor.
+
+                o <SyntaxHighlighter> - Syntax highlighter.
+
+                o <Scalable Vector Graphics> - *beta*, to be removed.
+
+        All plugins are located within the ND+ 'bin' directory. These
+        can be directly updated or removed if requried.
+
+        See the specific plugin for copyright and usage information.
+
+        The following are possible future plugins.
+
+                o <PlantUML> - UML diagrams.
+
+                o <timing-gen>
+
+                o <RRDiagram>
+
+                o <ASCIIMathML> - Translating ASCII math notation to Presentation MathML.
+
+        Any others, please contact.
+
+   Important!:
+
+        Not all plugins are portable across platforms, hence there
+        use may determine the hosts on which *ND+* can be executed.
+
+        Whereas the generate documentation should be fully portable, 
+        including the bundled <SyntaxHilite> implementation, being
+        JavaScript(tm) based.
+
+        <Mscgen> is a Windows(tm) only executable application.
+
+        <Ditaa>, <SDEdit> and <PlantUML> all require Java(tm) is be
+        available on the host; visible within the current *PATH*.
+
+(end!)
+
+                       -------------------------------
+

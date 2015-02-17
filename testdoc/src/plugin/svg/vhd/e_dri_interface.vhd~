@@ -1,0 +1,101 @@
+-------------------------------------------------------------------------------
+--
+-- TRW Ltd owns the copyright in this source file and all rights are
+-- reserved. It must not be used for any purpose other than that for which it
+-- is supplied and must not be copied in whole or in part, or disclosed to
+-- others without prior written consent of TRW Ltd.
+-- Any copy of this source file made by any method must also contain a copy
+-- of this legend.
+-- -------------------------------------------------------------------------------
+-- Copyright (c) 2007 TRW Limited
+
+--
+--  $URL:: svn://conektsvn.shrl1uk.trw.com/LDW_LLP_GEN1/trunk/hdl/DRI/e_dri_i#$
+-- This Revision:
+--         $Revision:: 2186                                                   $
+--   $LastModifiedBy::                                                        $
+--             $Date:: 2007-06-19 10:18:05 +0100 (Tue, 19 Jun 2007)           $
+--
+-------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+--
+-- Entity: dri_interface
+-- See also <dri_interface_arch>
+--
+--   Inputs:
+--        clk             - clock input
+--        resetn_clk      - synchronous reset, active low
+--        data_in         - 32 bit data word to transmit
+--        data_ready      - assert high when data is ready
+--        finish_off      - assert high when requesting that the current transfer be finished off (see below)
+--
+--   Outputs:
+--        frame_busy      - asserted high when sending data or finishing off
+--        data_ack        - asserted for one cycle when data_in has been latched
+--        valid_data      - asserted high when sending data (not when finishing off)
+--        dri_clk         - clock to DRI interface of micro
+--        dri_capture_en  - capture enable signal to DRI interface of micro
+--        dri_data        - byte wide data to DRI interface of micro
+--
+-- Description:
+-- When *data_ready* goes high, new data is available.  *data_ack* is asserted for one cycle to show that *data_in* is latched.
+-- The 32 bits of input data are then clocked out 8 bits at a time, most significant byte first.
+-- Data is presented on the rising clock edge to be sampled on the falling clock edge by the micro
+-- When data ready has gone low, no more data is available this frame.
+--
+-- In order to meet the requirements of the micro, we must toggle DRI clk three more times at the end,
+-- dropping *dri_capture_en* for the last one.
+-- This is done by asserting *finish_off* while *dri_capture_en* is high.
+--
+-- The *frame_busy* output will go high when the first data word is latched, and will drop once the
+-- final three DRI clk pulses have been sent
+--
+-- *dri_capture_en* goes high during the entire transfer.
+-- There is also a *valid_data* output to signify which DRI clks are associated with valid data and which are with
+-- the "end of transfer bodging"
+--
+-- Most of this is described by Figure 14.2.5 on 14-17 (Pg 735) of the HW
+-- reference manual for the M32192
+--
+-- 20-OCT-2006 Note that DRI docs in Renesas manual are in conflict. Diagram shows rising edge. Notes say must use falling edge when in special mode.
+--
+-- Timing diagram example for sending 2x32bit words of data:
+-- (begin drawing debug=1 scale=10)
+--                  _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _
+--            clk: | |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |
+--                      ___________________________________________
+--     data_ready: ____|                                           |__________________________________________________________....
+--                          ___                                 ___                                 ___
+--       data_ack: ________|   |_______________________________|   |_______________________________|   |______________________....
+--                          _______________________________________________________________________________________________
+--     frame_busy: ________|                                                                                               |__....
+--                 ____ _______________ _______________________________
+--        data_in: ____X_12345679______X___ABCDEF12____________________
+--                                                                  ______________________________________
+--     finish_off: ________________________________________________|                                      |____________________....
+--                          ___________________________________________________________________________________________
+-- dri_capture_en: ________|                                                                                           |_______....
+--                              _______________________________________________________________________
+--     valid_data: ____________|                                                                       |_______________________....
+--                              ___     ___     ___     ___         ___     ___     ___     ___         ___     ___     ___
+--        dri_clk: ____________|   |___|   |___|   |___|   |_______|   |___|   |___|   |___|   |_______|   |___|   |___|   |___....
+--                 ____________ _______ _______ _______ ___________ _______ _______ _______ ___________ _______________________
+--       dri_data: ____XX______X_12____X__34___X__56___X__78_______X___AB__X__CD___X___EF__X___12______X___--__--______________
+--                                                                                                          ^---^--dummy data
+-- (end drawing)
+entity dri_interface is
+    port (
+        clk            : in  std_logic;
+        resetn_clk     : in  std_logic;
+        data_in        : in  std_logic_vector(31 downto 0);
+        data_ready     : in  std_logic;
+        finish_off     : in  std_logic;
+        frame_busy     : out std_logic;
+        data_ack       : out std_logic;
+        valid_data     : out std_logic;  -- flag to signify whether the data is true DRI data, or just the "finishing-off" clock pulses
+        dri_clk        : out std_logic;
+        dri_capture_en : out std_logic;
+        dri_data       : out std_logic_vector(7 downto 0)    );
+
+end entity dri_interface;

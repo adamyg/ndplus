@@ -1,0 +1,48 @@
+
+    Title:      Prototypes
+
+        You can explicity inline the prototype for the given topic.
+
+                                -------------------------
+
+    Topic:      Example 1
+
+        For basic and advanced level languages the Prototype keywords allow a prototype
+        to be embedded within the documentation.
+
+    Source:
+(start example)
+    Function:           MyFunction
+
+        The MyFunction definition is using an explicit prototype.
+
+    Prototype:
+        void MyFunction (int arg1, int arg1)
+
+    Arguments:
+        arg1 -          First argument
+
+        arg2 -          Second argument
+
+    Returns:
+        nothing
+(end example)
+
+    Function:           MyFunction
+
+        The MyFunction definition is using an explicit prototype.
+
+    Prototype:
+        void MyFunction (int arg1, int arg1)
+
+    Arguments:
+        arg1 -          First argument
+
+        arg2 -          Second argument
+
+    Returns:
+        nothing
+
+
+
+

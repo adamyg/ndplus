@@ -1,0 +1,275 @@
+
+Title:          Ditaa
+
+Topic:          Introduction
+
+        Ditaa diagrams are defined by marked regions.
+
+                (see ditaalogo.png)
+
+                (see ditaaarrow.png)
+
+        Ditaa is a small command-line utility written in Java, that
+        can convert diagrams drawn using ascii art ('drawings' that
+        contain characters that resemble lines like | / - ), into
+        proper bitmap graphics. This is best illustrated by the
+        following example -- which also illustrates the benefits of
+        using ditaa in comparison to other methods :)
+
+        The author of ditaa is Stathis Sideris
+
+        http://ditaa.sourceforge.net/
+
+    Available options are as follows:
+
+        o -A,--no-antialias             Turns anti-aliasing off.
+
+        o -d,--debug                    Renders the debug grid over the resulting
+                                        image.
+
+        o -E,--no-separation            Prevents the separation of common edges of
+                                        shapes. You can see the difference below:
+
+        o  -h,--html                    In this case the input is an HTML file. The
+                                        contents of the <pre class="textdiagram"> tags
+                                        are rendered as diagrams and saved in the
+                                        images directory and a new HTML file is
+                                        produced with the appropriate <img> tags.
+                                        See the HTML section.
+
+        o  --help                       Prints usage help.
+
+        o  -r,--round-corners           Causes all corners to be rendered as round
+                                        corners.
+
+        o  -s,--scale <SCALE>           A natural number that determines the size of
+                                        the rendered image. The units are fractions of
+                                        the default size (2.5 renders 1.5 times bigger
+                                        than the default).
+
+        o  -S,--no-shadows              Turns off the drop-shadow effect.
+
+        o  -t,--tabs <TABS>             Tabs are normally interpreted as 8 spaces but
+                                        it is possible to change that using this
+                                        option. It is not advisable to use tabs in
+                                        your diagrams.
+
+    Example:
+
+(start ditaa -S)
+
+        +--------+   +-------+    +-------+
+        |        | --+ ditaa +--> |       |
+        |  Text  |   +-------+    |diagram|
+        |Document|   |!magic!|    |       |
+        |     {d}|   |       |    |       |
+        +---+----+   +-------+    +-------+
+            :                         ^
+            :    Lots of work         |
+            +-------------------------+
+(end ditaa)
+
+>Source:
+>(start ditaa -S)
+>        +--------+   +-------+    +-------+
+>        |        | --+ ditaa +--> |       |
+>        |  Text  |   +-------+    |diagram|
+>        |Document|   |!magic!|    |       |
+>        |     {d}|   |       |    |       |
+>        +---+----+   +-------+    +-------+
+>            :                         ^
+>            :    Lots of work         |
+>            +-------------------------+
+>(end ditaa)
+
+
+    Round corners:
+
+        If you use / and \ to connect corners, they are rendered as round
+        corners:
+
+(ditaa)
+        /----\ /----\
+        |c33F| |cC02|
+        |    | |    |
+        \----/ \----/
+
+        /----\ /----\
+        |c1FF| |c1AB|
+        |    | |    |
+        \----/ \----/
+
+        round corner demo
+(end)
+
+>Source:
+>(ditaa)
+>        /----\ /----\
+>        |c33F| |cC02|
+>        |    | |    |
+>        \----/ \----/
+>
+>        /----\ /----\
+>        |c1FF| |c1AB|
+>        |    | |    |
+>        \----/ \----/
+>
+>        round corner demo
+>(end)
+
+    Color:
+
+        Color codes can be used to add color to the diagrams. The syntax of
+        color codes is
+
+        *cXXX* -        where XXX is a hex number. The first digit of the
+                        number represents the red compoment of the color, the
+                        second digit represents green and the third blue
+                        (good ol' RGB). See below for an example of use of
+                        color codes:
+
+(ditaa)
+        /-------------+-------------\
+        |cRED RED     |cBLU BLU     |
+        +-------------+-------------+
+        |cGRE GRE     |cPNK PNK     |
+        +-------------+-------------+
+        |cBLK BLK     |cYEL YEL     |
+        \-------------+-------------/
+
+                Color codes
+(end)
+
+>Source:
+>(ditaa)
+>        /-------------+-------------\
+>        |cRED RED     |cBLU BLU     |
+>        +-------------+-------------+
+>        |cGRE GRE     |cPNK PNK     |
+>        +-------------+-------------+
+>        |cBLK BLK     |cYEL YEL     |
+>        \-------------+-------------/
+>
+>                Color codes
+>(end)
+
+        As you can see above, if a colored shape contains any text, the color
+        of the text is adjusted according to the underlying color. If the
+        undelying color is dark, the text color is changed to white (from the
+        default black).
+
+        Note that color codes only apply if they are withing closed shapes,
+        and they have no effect anywhere outside.
+
+   Tags:
+
+        ditaa recognises some tags that change the way a rectangular shape is
+        rendered. All tags are between { and }. See the table below:
+
+(ditaa)
+        Document      Storage        Input/Output
+
+        +-----+       +-----+        +-----+
+        |{d}  |       |{s}  |        |{io} |
+        |     |       |     |        |     |
+        |     |       |     |        |     |
+        +-----+       +-----+        +-----+
+(end)
+
+>Source:
+>(ditaa)
+>        Document      Storage        Input/Output
+>
+>        +-----+       +-----+        +-----+
+>        |{d}  |       |{s}  |        |{io} |
+>        |     |       |     |        |     |
+>        |     |       |     |        |     |
+>        +-----+       +-----+        +-----+
+>(end)
+
+
+    Dashed lines:
+
+        Any lines that contain either at least one = (for horizontal lines)
+        or at least one : (for vertical lines) are rendered as dashed lines.
+        Only one of those characters can make a whole line dashed, so this
+        feature "spreads". The rationale behind that is that you only have to
+        change one character to switch from normal to dashed (and vice
+        versa), rather than redrawing the whole line/shape. Special symbols
+        (like document or storage symbols) can also be dashed. See below:
+
+(ditaa)
+        ----+  /----\  +----+
+            :  |    |  :    |
+            |  |    |  |{s} |
+            v  \-=--+  +----+
+(end)
+
+>Source:
+>(ditaa)
+>       ----+  /----\  +----+
+>           :  |    |  :    |
+>           |  |    |  |{s} |
+>           v  \-=--+  +----+
+>(end)
+
+
+    Point markers:
+
+        If * is encountered on a line (but not at the end of the line), it is
+        rendered as a special marker, called the point marker (this feature
+        is still experimental). See below:
+
+(ditaa)
+
+        -*--*-
+        |    |      /--*
+        *    *      |
+        |    |  -*--+
+        *----*
+
+(end)
+
+>Source:
+>(ditaa)
+>       -*--*-
+>       |    |      /--*
+>       *    *      |
+>       |    |  -*--+
+>       *----*
+>(end)
+
+    Text Processing:
+
+        *Note*  This section is still being written
+
+        If the pattern ' o XXXXX' is encountered, where XXXXX is any text,
+        the 'o' is interpreted and rendered as a bullet point. Note that
+        there must be a space before the 'o' as well as after it. See below:
+
+(ditaa)
+
+        /-----------------\
+        | Things to do    |
+        | cGRE            |
+        | o Cut the grass |
+        | o Buy jam       |
+        | o Fix car       |
+        | o Make website  |
+        \-----------------/
+
+(end)
+
+>Source:
+>(ditaa)
+>       /-----------------\
+>       | Things to do    |
+>       | cGRE            |
+>       | o Cut the grass |
+>       | o Buy jam       |
+>       | o Fix car       |
+>       | o Make website  |
+>       \-----------------/
+>(end)
+
+

@@ -1,0 +1,123 @@
+
+Title:          SyntaxHighlighter
+
+Topic:          Introduction
+
+        Syntax highlighting of code is defined using the same syntax a <Code Snippets>.
+
+        The feature can be explicity enabled using the 'hilite=type' option or
+        implicity via forcing all code snippets to be highlighted.
+
+(start code hilite=cpp)
+/*  Function:   strchr
+        Search for a given character within a string
+
+    Description:
+        This function finds the first occurence of <[c]> (converted to a char) in the
+        string pointed to by <[string]> (including the terminating null character).
+
+    Returns:
+        Returns a pointer to the located character, or a null pointer if <[c]> does not
+        occur in <[string]>.
+ */
+char *
+strchr (const char *s1, int i)
+{
+    const unsigned char *s = (const unsigned char *)s1;
+    unsigned char c = (unsigned int)i;
+
+    while (*s && *s != c)
+        ++s;
+    if (*s != c)
+        s = NULL;
+    return (char *) s;
+}
+(end code)
+
+
+Topic:          Features
+
+        The author of Syntaxhighlighter is Alex Gorbatchev. 
+
+                *email:* alex.gorbatchev@gmail.com
+
+        Home page:
+
+                http://alexgorbatchev.com/SyntaxHighlighter/
+
+         *old*, http://code.google.com/p/syntaxhighlighter/
+
+        SyntaxHighlighter is here to help a developer/coder to post code snippets
+        online with ease and have it look pretty.
+
+        It's 100% Java Script based and it doesn't care what you have on your server.
+
+        SyntaxHighlighter features
+
+          * 100% client side, no server dependency using JavaScript.
+
+          * Multiple languages support.
+
+          * Easy to use and deploy, just copy files and link them in your templates.
+
+          * Wide browser support.
+
+          * Very lightweight, compressed core library is 19kb plus whatever brushes you need.
+
+
+Topic:          Languages
+
+        Here's a list of supported languages and their aliases.
+
+(start table)
+        [Language       [Aliases                        ]
+!       Applescript
+!       actionscript3   as3
+!       bash            shell,sh
+!       coldfusion      cf
+!       cpp             c,c++,c/c++
+!       c#              c-sharp,csharp
+!       css
+!       delphi          pascal
+!       diff            patch,pas
+!       erl             erlang
+!       groovy
+!       java
+!       jfx             javafx
+!       js              jscript,javascript
+!       perl            pl,pm
+!       php
+!       text            plain,textfile
+!       py              python
+!       ruby            rails,ror,rb
+!       sass            scs,s
+!       scala
+!       sql
+!       vb              vbnet,visualbasic
+!       xml             xhtml,xslt,html'
+(end table)
+
+
+Topic:		License
+
+        You may use any SyntaxHighlighter project under the terms of either
+        the MIT License or the GNU General Public License (GPL) Version 3.
+
+        The MIT License is recommended for most projects. It is simple and
+        easy to understand and it places almost no restrictions on what you
+        can do with a SyntaxHighlighter project.
+
+        If the GPL suits your project better you are also free to use a
+        SyntaxHighlighter project under that license.
+
+        You dont have to do anything special to choose one license or the
+        other and you dont have to notify anyone which license you are
+        using. You are free to use a SyntaxHighlighter project in
+        commercial projects as long as the copyright header is left intact.
+
+    Important!:
+
+        *ND+* utilises SyntaxHighlighter under the terms of the MIT Licence.
+
+                         ----------------------------
+

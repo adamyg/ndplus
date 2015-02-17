@@ -1,0 +1,189 @@
+
+Section:        Plugin Source Information
+
+                      ---------------------------------
+
+Topic:          SyntaxHighlighter Source
+
+        SyntaxHighlighter version 3.0.83
+
+        http://alexgorbatchev.com/SyntaxHighlighter/
+
+    license:
+
+        You may use any SyntaxHighlighter project under the terms of either
+        the MIT License or the GNU General Public License (GPL) Version 3.
+
+        The MIT License is recommended for most projects. It is simple and
+        easy to understand and it places almost no restrictions on what you
+        can do with a SyntaxHighlighter project.
+
+        If the GPL suits your project better you are also free to use a
+        SyntaxHighlighter project under that license.
+
+        You don't have to do anything special to choose one license or the
+        other and you don't have to notify anyone which license you are
+        using. You are free to use a SyntaxHighlighter project in
+        commercial projects as long as the copyright header is left intact.
+
+                      ---------------------------------
+
+Topic:          Ditaa Source
+
+        Ditaa diagram are defined by marked regions.
+
+        Ditaa is a small command-line utility written in Java, that can
+        convert diagrams drawn using ascii art (drawings that contain
+        characters that resemble lines like | / - ), into proper bitmap
+        graphics. This is best illustrated by the following example --
+        which also illustrates the benefits of using ditaa in comparison to
+        other methods :)
+
+        http://ditaa.sourceforge.net/
+
+    Version:
+
+        Current version distributed with *ND+* is 0.9.
+
+    license:
+
+        ditaa is license under the "GNU General Public License version 2.0 (GPLv2)"
+
+
+                      ---------------------------------
+
+Topic:          SDEdit Source
+
+        Quick Sequence Diagram Editor
+
+        http://sdedit.sourceforge.net/
+
+    Version:
+
+        Current version distributed with *ND+* is 4.01
+
+    license:
+
+        sdedit, Copyright (c) 2006-2008, Markus Strauch. All rights reserved.
+
+        This program is released under the BSD license:
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions
+        are met:
+
+        Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+
+        Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+        FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+        COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+        INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+        BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+        LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+        ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
+
+
+                      ---------------------------------
+
+Topic:          Mscgen Source
+
+        Mscgen is a small program that parses Message Sequence Chart
+        descriptions and produces PNG, SVG, EPS or server side image maps
+        (ismaps) as the output. Message Sequence Charts (MSCs) are a way of
+        representing entities and interactions over some time period and
+        are often used in combination with SDL. MSCs are popular in
+        Telecoms to specify how protocols operate although MSCs need not be
+        complicated to create or use. Mscgen aims to provide a simple text
+        language that is clear to create, edit and understand, which can
+        also be transformed into common image formats for display or
+        printing.
+
+        http://www.mcternan.me.uk/mscgen/
+
+    license:
+
+        *Mscgen* version 0.8, 'Copyright (C) 2007 Michael C McTernan'
+
+        Michael.McTernan.2001@cs.bris.ac.uk
+
+        Mscgen comes with ABSOLUTELY NO WARRANTY. This is free software, 
+        and you are welcome to redistribute it under certain conditions;
+        type `mscgen -l' for details.
+
+                      ---------------------------------
+
+Topic:          PlantUML Source.
+
+        PlantUMLis a Java component that allows you to quickly write.
+
+           o Sequence diagram.
+           o Use case diagram.
+           o Class diagram.
+           o Activity diagram.
+           o Component diagram.
+           o State diagram.
+           o Object diagram.
+           o Wireframe graphical interface.
+
+        http://plantuml.sourceforge.net/
+
+    license:
+
+        PlantUML is distributed under the GPL license.
+
+                      ---------------------------------
+
+Topic:          RRDiagram
+
+        Generate railroad diagrams from code or BNF. Generate BNF from code.
+
+        RR Diagram allows to generate railroad diagrams (also called syntax
+        diagrams) from code or from BNF notation. The output format is a
+        very compact SVG image which can be integrated to web pages and
+        where rules can contain links.
+
+        RR Diagram can also be used to generate BNF notation from a model.
+
+        https://github.com/Chrriis/RRDiagram
+
+    license:
+
+        This library is provided under the LGPL, version 2.1 or later.
+
+
+                      ---------------------------------
+
+Topic:          timing-gen
+
+        Timing-gen is a Linux tool to generate high quality Postscript
+        timing diagrams from text input files.
+
+        http:://sourceforge.net/projects/timing-gen/
+ 
+    license:
+
+        GNU General Public License version 3.0 (GPLv3)
+
+
+                      ---------------------------------
+
+Topic:           ASCIIMathML
+
+        Translating ASCII math notation to Presentation MathML
+
+        http://www1.chapman.edu/~jipsen/mathml/asciimath.html
+
+    license:
+
+        ASCIIMathML.js is freely available under the GNU Lesser General
+        Public License.

@@ -1,0 +1,153 @@
+
+Title:          Introduction
+
+        *Natural Docs Plus* package *(ND+)*.
+
+        NaturalDocs allows developers to review and share their code
+        comments in a browser. ActionScript, C#, and Perl developers
+        should consider using this documentation generator because
+        these languages are fully supported by NaturalDocs. Fully
+        supported languages come with the following features:
+
+                o Implicit comment generation
+                o Inheritence diagrams
+                o Automatic scope detection
+
+        Firstly this set of pages where generated using *ND+* and
+        shall demonstrate many of the New Features available to
+        Natural Docs users with minimal changes to existing documents.
+
+    Caution!:   BETA Product
+
+        It is easy to state ND+ has not endued the same level of
+        public usage and related testing as the primary 'Natural
+        Docs' package has since it initial release.
+
+        ND+ is fairly stable in that it has been privately used for a
+        number of years across several projects, despite this it
+        should be only for non 'casual' users or unless there are
+        specific features you require not currently available.
+
+
+Topic:          ND+ - The extended Natural Docs package
+
+        Copyright (c) 2007-2013 Adam Young.
+
+        http://sourceforge.net/projects/ndplus/
+
+    Natural Docs:
+
+        Copyright (c) 2003-2008 Greg Valure.
+
+        http://www.naturaldocs.org/news/version1.4.html
+
+        *Natural Docs* is an open-source documentation generator for
+        multiple programming languages. You document your code in a
+        natural syntax that reads like plain English. Natural Docs
+        then scans your code and builds high-quality HTML
+        documentation from it.
+
+        *ND+* is a fork of what was *Natural Docs 1.4* with a number
+        of enhancements hopefully under the same philosophy as
+        'Natural Docs' was originally developed.
+
+    Philosophy:
+
+        The original 'Natural Docs'.
+
+        It was designed to have as little visible syntax as possible.
+        I/we specifically do not want tags littered everywhere thru
+        the source, like '=head1' for 'POD' or '@param' for Javadoc, 
+        which look and feel unnatural.
+
+        While it is structured, it's minimal and mostly transparent.
+        The comments in the source files read just as easily as the
+        generated documentation.
+
+    New Features:
+
+            o <Packages> - ND+ breaks away from a one-to-one relationship
+                of source pages and the produced result.
+
+                *ND+* permits packages to split across files, which
+                may then be merged and/or split into a number of
+                documents.
+
+                As an example, pulling both header/include
+                definitions and the underlying source code function
+                definitions together into a single view.
+
+            o <Tables> - Several difference table formats are
+                available.
+
+            o <Prototypes> - Embedded protypes.
+
+            o <SyntaxHighlighter> - Syntax hilighting of code snippets.
+
+            o <Admonitions> - Highlighted reminders and notes.
+
+            o Lists - <Definition Lists>, <Bullet Lists> and
+                <Numbered Lists> support multiple leveled definitions.
+
+            o <Modelines> - File level configuration options.
+
+            o <Plugins> - Several third party ASCII art packages have
+                been integrated.
+
+            o <Page Footer> - Global page footer.
+
+
+    Beta Features:
+
+            o *C++* - Native language support.
+
+            o <Member documentation> - Permits QT style member documentation.
+
+            o <ManDoc> - Mandoc output generation mode.
+
+
+    Coming Soon:
+
+            o <AsciiDoc> - AsciiDoc output generation mode.
+
+                     -----------------------------------
+
+Topic:          License
+
+        *ND+* is licensed under the GPL-2.0, the same terms and
+        conditions as 'Natural Docs 1.4'.
+
+        *ND+*, 'Copyright (C) 2007-2013 Adam Young'
+        http://ndplus.sourceforge.net/
+
+        *Natural Docs*, 'Copyright (C) 2003-2008 Greg Valure'
+        http://www.naturaldocs.org
+
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version
+        2 of the License, or (at your option) any later version.
+
+        This program is distributed in the hope that it will be
+        useful, but WITHOUT ANY WARRANTY; without even the implied
+        warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+        PURPOSE. See the GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public
+        License along with this program; if not, visit
+        http://www.gnu.org/licenses/gpl.txt or write to the Free
+        Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+        MA 02111-1307 USA.
+
+        See: http://www.gnu.org/licenses/gpl-2.0.html
+
+    Important!:
+
+        'Natural Docs' *1.5+* is now licensed under the 'GNU Affero
+        General Public License' (AGPL).
+
+        All *ND+* changes are under the 'GPL-2.0'. Please by aware of
+        the license differences before applying patches to either
+        branch.
+
+                     -----------------------------------

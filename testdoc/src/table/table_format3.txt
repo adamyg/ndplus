@@ -1,0 +1,98 @@
+Title:          CSV Table Format
+
+        The table Comma Seperated Value *(CSV)* format uses a similar syntax as 
+        <Simple Table Format> with support for quoted columns of dating.
+
+
+Topic:          General syntax rules
+
+        While no formal specification for CSV exists, RFC 4180 describes a common
+        format and establishes "text/csv" as the MIME type registered with the IANA,
+        with the CVS table syntax following these guidelines.
+
+        o A new table body is introducted with the following marker;
+
+                *(start* *table* '[title],' '[caption],' format=csv ',[options ..]' *)*
+
+        o Unless the option 'header=no' is given, the first line is taken as
+          the column headers.
+
+        o All non-blank lines are taken as cell text.
+
+        o Each record is one line terminated by a new line.
+
+        o Fields that contain a special character (comma, newline, or double quote), 
+          must be enclosed in double quotes. (i.e "data, with a comma").
+
+        o A double quote character can be embedded within the field text by ecaping
+          the character, by placing another double quote character next to it
+          within the field definition (ie "").
+
+        o Termination of the table body is by a *(end)* marker.
+
+
+Example:
+(start table Title, Caption, format=csv)
+"Column1", "Column2", "Column3",
+
+"Column1.1", "Column1.2", "Column1.3",
+
+"Column2,1", "Column2.2", "Column2.3"
+
+"Column3.1", "Column3,2", "Column3,3"
+
+     "Column4.1","Column4.2","Column4.3",
+
+  """Column5.1""" , "Column""5.2""" , "Column5.3"
+
+        Column6.1 , Column6.2, Column6.3
+
+        Column7.1 , , Column7.3
+
+        Column8.1 ,, "Column8.3
+ over two lines"
+
+(end table)
+
+Source:
+>       (start table Title, Caption, format=csv)
+>       "Column1", "Column2", "Column3"
+>       "Column1.1", "Column1.2", "Column1.3"
+>       "Column2,1", "Column2.2", "Column2.3"
+>       "Column3.1", "Column3,2", "Column3.3"
+>       "Column4.1", "Column4.2", "Column4,3"
+>       """Column5.1""","Column""5.2""","Column5.3"
+>       Column7.1 , , Column7.3
+>       Column6.1, Column6.2, Column6.3
+>       Column8.1 ,, "Column8.3
+> over two lines"
+>       (end table)
+
+
+Example Two:
+
+(start table format=csv)
+Year,Make,Model,Features,Price
+1997, Ford,  E350," ac, abs, moon"  ,3000.00
+1997, Ford,  E350,"ac, abs, moon",3000.00
+1999, Chevy, "Venture ""Extended Edition""",,4900.00
+1996, Jeep,  Grand Cherokee,"MUST SELL air, moon roof, loaded",4799.00
+(end table)
+
+        This CSV example illustrates that
+
+        * First line is taken as the column headers,
+        * Fields that contain commas and double-quotes must be quoted,
+        * A quote within a field must be escaped with an additional quote immediately 
+          preceding the literal quote,
+        * Space before and after delimiter commas may be trimmed.
+
+Source:
+>       (start table format=csv)
+>       Year,Make,Model,Features,Price
+>       1997, Ford,  E350," ac, abs, moon"  ,3000.00
+>       1997, Ford,  E350,"ac, abs, moon",3000.00
+>       1999, Chevy, "Venture ""Extended Edition""",,4900.00
+>       1996, Jeep,  Grand Cherokee,"MUST SELL air, moon roof, loaded",4799.00
+>       (end table)
+

@@ -1,0 +1,281 @@
+
+    Title:      Definition Lists
+
+        You can add a definition list by using the format below, specifically text
+        space dash space text.
+
+
+                                -------------------------
+
+    Topic:      Overview
+
+        The standard ND definition syntax is supported plus a number of extensions
+        including <Levelling>, <Continuation> and <Mixed> usage.
+
+        Like bullet lists, you can have blank lines between them if you want,
+        subsequent lines dont have to be indented, and you end the list by skipping a
+        line and doing something else.
+
+    Source:
+(start code)
+        First  - This is the first item.
+        Second - This is the second item.
+                 This is more of the second item.
+        Third  - This is the third item.
+        This is more of the third item.
+
+        Some text after the definition list.
+(end code)
+
+    Result:
+        First  - This is the first item.
+        Second - This is the second item.
+                 This is more of the second item.
+        Third  - This is the third item.
+        This is more of the third item.
+
+        Some text after the definition list.
+
+    Notes:
+        Remember that with definition lists, if you're using the plural form of the
+        keywords each entry is a symbol and can be linked to just as if it had its own
+        topic.
+
+                                -------------------------
+
+    Topic:      Levelling
+
+        Definition lists can represent multiple levels of elements directed by the
+        indentation of each line, for example;
+
+        desc - list 1
+        desc - list 2
+                desc - list 2.1
+                        desc - list 2.1.1
+                        desc - list 2.1.2
+                desc - list 2.2
+                        desc - list 2.2.1
+                        desc - list 2.2.2
+        desc - list 3
+
+        Start of normal paragraph reset indentation.
+
+(code)
+Source:
+        desc - list 1
+        desc - list 2
+                desc - list 2.1
+                        desc - list 2.1.1
+                        desc - list 2.1.2
+                desc - list 2.2
+                        desc - list 2.2.1
+                        desc - list 2.2.2
+        desc - list 3
+(end)
+
+
+                                -------------------------
+
+    Topic:      Continuation
+
+        Definition list content maybe stated over a number of lines. Text which is line
+        seperated and indented by one shall be taken as a continuation of the bullet
+        definition and added as a seperate paragraph, for example.
+
+(start code)
+Source:
+        item - description 1
+
+                paragraph description 1
+
+                paragraph description 1
+
+        item - description 2
+
+                paragraph description 2
+
+                paragraph description 2
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                paragraph description 2.1.1
+
+                                paragraph description 2.1.1
+
+                        item - description 2.1.2
+                item - description 2.2
+                        item - description 2.2.1
+                        item - description 2.2.2
+        item - description 3
+                item - description 1
+                item - description 2
+        item - description 4
+                item - description 4.1
+
+                        paragraph description 4.1
+
+    Notes:  Paragraphs must be line seperated and indented.
+(end)
+
+        item - description 1
+
+                paragraph description 1
+
+                paragraph description 1
+
+        item - description 2
+
+                paragraph description 2
+
+                paragraph description 2
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                paragraph description 2.1.1
+
+                                paragraph description 2.1.1
+
+                        item - description 2.1.2
+                item - description 2.2
+                        item - description 2.2.1
+                        item - description 2.2.2
+        item - description 3
+                item - description 1
+                item - description 2
+        item - description 4
+                item - description 4.1
+
+                        paragraph description 4.1
+
+    Notes:
+        One should be aware that during list formatting an incorrect decrease in
+        indentation restarts in the indentation logic closing the related list which may
+        product unexpected results, for example;
+
+    Source:
+(start code)
+        item - description 1
+
+        item - description 2
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                Second paragraph description 2.1.1
+
+                                First paragraph description 2.1.1
+
+                        More text for description 2.1.1 <= wrong indentation resets the
+                        list depth to zero closing the current list definition and
+                        starting a new paragraph.
+
+                item - description 2.2
+
+        item - description 3
+
+                item - description 2
+(end code)
+
+    Result:
+        item - description 1
+
+        item - description 2
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                Second paragraph description 2.1.1
+
+                                First paragraph description 2.1.1
+
+                        More text for description 2.1.1 <= wrong indentation resets the
+                        list depth to zero closing the current list definition and
+                        starting a new paragraph.
+
+                item - description 2.2
+
+        item - description 3
+
+                item - description 2
+
+        You may also note that is this reset affect disallows additional paragraphs to
+        be appended once sub items have been encountered.
+
+        Both the reset logic and the inablity to append are currently by design.
+
+
+                                -------------------------
+
+    Topic:      Mixed
+
+        Definition lists can be mixed within other ND list constructs. The definitions must
+        be line seperated and indented by one to be associated.
+
+    Source:
+(start code)
+        item - description 1
+
+                paragraph description 1.1
+
+                paragraph description 1.2
+
+        item - description 2
+
+                paragraph description 2.1
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                paragraph description 2.1.1
+
+                                o bullet 1
+                                o bullet 2
+                                        o bullet 2.1
+
+                        item - description 2.1.2
+
+                item - description 2.2
+                        item - description 2.2.1
+                        item - description 2.2.2
+
+        item - description 2
+
+                o bullet 1
+                o bullet 2
+(end code)
+
+    Result:
+        item - description 1
+
+                paragraph description 1.1
+
+                paragraph description 1.2
+
+        item - description 2
+
+                paragraph description 2.1
+
+                item - description 2.1
+                        item - description 2.1.1
+
+                                paragraph description 2.1.1
+
+                                o bullet 1
+                                o bullet 2
+                                        o bullet 2.1
+
+                        item - description 2.1.2
+
+                item - description 2.2
+                        item - description 2.2.1
+                        item - description 2.2.2
+
+        item - description 2
+
+                o bullet 1
+                o bullet 2
+
+                                -------------------------
+

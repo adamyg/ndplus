@@ -1,0 +1,189 @@
+
+Title:          SDEdit
+
+        Quick Sequence Diagram Editor
+
+Topic:          Introduction
+
+        Quick Sequence Diagram Editor is a tool for creating UML sequence
+        diagrams from textual descriptions of objects and messages that
+        follow a very easy syntax (http://sdedit.sourceforge.net/enter_text/index.html).
+
+        It supports actors, constructors, destructors, threads and
+        on-diagram comments that can be used to represent conditions or
+        loops.
+
+        Thanks to the FreeHEP Vectorgraphics library, diagrams can be
+        exported in various formats, including PDF, (E)PS, SVG, SWF, EMF,
+        GIF, JPEG.
+
+        Quick Sequence Diagram Editor automatically lays out lifelines and
+        messages, there is no need to drag and drop something onto a
+        canvas. So a user should be able to create a nice sequence diagram
+        in a small fraction of the time that one of the grand UML tools
+        would consume.
+
+        The aim of the tool is to save you from lots of the stupid work
+        that WYSIWYG applications require, by trading off not too much
+        flexibility. It beats these applications by far when it comes to
+        insert or remove objects and messages. This can be done by just
+        inserting or removing a line of text, the tool will do all the rest.
+
+   Copyright:
+
+>       Copyright (c) 2006 - 2008, Markus Strauch. All rights reserved.
+
+   License:
+>       This program is released under the BSD license:
+>
+>       Redistribution and use in source and binary forms, with or without
+>       modification, are permitted provided that the following conditions
+>       are met:
+>
+>       Redistributions of source code must retain the above copyright
+>       notice, this list of conditions and the following disclaimer.
+>
+>       Redistributions in binary form must reproduce the above copyright
+>       notice, this list of conditions and the following disclaimer in the
+>       documentation and/or other materials provided with the distribution.
+>
+>       THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+>       ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+>       LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+>       FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+>       COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+>       INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+>       BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+>       LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+>       CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+>       LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+>       ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+>       POSSIBILITY OF SUCH DAMAGE.
+
+   Home page:
+
+        http://sdedit.sourceforge.net/index.html
+
+   Examples:
+
+        The following is an example of the raw input code and output that is generated,
+        in this case as a PNG.
+
+        The full syntax is available (http://sdedit.sourceforge.net/enter_text/index.html)
+
+(start sdedit)
+        bfs:BFS[a]
+        /queue:FIFO
+        someNode:Node
+        node:Node
+        adjList:List
+        adj:Node
+
+        bfs:queue.new
+        bfs:someNode.setLevel(0)
+        bfs:queue.insert(someNode)
+        [c:loop while queue != ()]
+          bfs:node=queue.remove()
+          bfs:level=node.getLevel()
+          bfs:adjList=node.getAdjacentNodes()
+          [c:loop 0 <= i < #adjList]
+            bfs:adj=adjList.get(i)
+            bfs:nodeLevel=adj.getLevel()
+            [c:alt nodeLevel IS NOT defined]
+              bfs:adj.setLevel(level+1)
+              bfs:queue.insert(adj)
+              --[else]
+              bfs:nothing to do
+            [/c]
+          [/c]
+        [/c]
+        bfs:queue.destroy()
+(end sdedit)
+
+   Source:
+
+>(start sdedit)
+>       bfs:BFS[a]
+>       /queue:FIFO
+>       someNode:Node
+>       node:Node
+>       adjList:List
+>       adj:Node
+>
+>       bfs:queue.new
+>       bfs:someNode.setLevel(0)
+>       bfs:queue.insert(someNode)
+>       [c:loop while queue != ()]
+>         bfs:node=queue.remove()
+>         bfs:level=node.getLevel()
+>         bfs:adjList=node.getAdjacentNodes()
+>         [c:loop 0 <= i < #adjList]
+>           bfs:adj=adjList.get(i)
+>           bfs:nodeLevel=adj.getLevel()
+>           [c:alt nodeLevel IS NOT defined]
+>             bfs:adj.setLevel(level+1)
+>             bfs:queue.insert(adj)
+>             --[else]
+>             bfs:nothing to do
+>           [/c]
+>         [/c]
+>       [/c]
+>       bfs:queue.destroy()
+>(end sdedit)
+
+        Multithreading example
+
+        When multithreading is enabled (it can be switched on and off
+        in the preferences dialog or the Edit menu), you can create
+        diagrams that model arbitarily many sequences running in
+        parallel, not just a single one. The sequences can (at your
+        option) be distinguished by the colours of their
+        corresponding lifelines. There is still no real parallelism,
+        as the messages must be specified in some order. This order
+        can be interpreted as one of many possible interleavings of
+        the threads. A single-processor system would execute them in
+        a similar way.
+
+(start sdedit)
+        client1:Actor
+        client2:Actor
+        webServer:Server[a]
+        /t1:Thread[a]
+        /t2:Thread[a]
+        localDisk:HDD
+
+        client1:webServer.GET /
+        webServer[,0]:>t1.new
+        t1[,1]:page=localDisk.read("/var/www/index.html")
+        client2:webServer.GET /doc/menu.html
+        webServer[,2]:>t2.new
+        t2[,3]:page=localDisk.read("/var/www/doc/menu.html")
+        t2:client2.send(page)
+        t1[,1]:client1.send(page)
+        t1:stop
+        t2[,3]:stop
+(end sdedit)
+
+   Source:
+
+>(start sdedit)
+>       client1:Actor
+>       client2:Actor
+>       webServer:Server[a]
+>       /t1:Thread[a]
+>       /t2:Thread[a]
+>       localDisk:HDD
+>
+>       client1:webServer.GET /
+>       webServer[,0]:>t1.new
+>       t1[,1]:page=localDisk.read("/var/www/index.html")
+>       client2:webServer.GET /doc/menu.html
+>       webServer[,2]:>t2.new
+>       t2[,3]:page=localDisk.read("/var/www/doc/menu.html")
+>       t2:client2.send(page)
+>       t1[,1]:client1.send(page)
+>       t1:stop
+>       t2[,3]:stop
+>(end sdedit)
+
+                          -------------------------

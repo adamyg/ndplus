@@ -1,0 +1,55 @@
+
+Title:          ND Basic Table Format
+
+        Similar to the ND format, is the 'basic' layout, which uses a
+        fixed format column defined by the header like the ND format.
+        Unlike most other format. this simplified form does not
+        require explicit row markers, yet is at the cost of limited
+        formatting features.
+
+Topic:          General syntax rules
+
+        o Column headers are defined with a leading *[* (open square
+            bracket) and optionally closed using the *]* (close
+            square bracket).
+
+        o Rows are single lines of text; any text outside the
+            original column definition shall be ignored.
+
+        o Data shall be appended to the previous line if prefixed with a '+'.
+
+        o Blank lines are ignored.
+
+        o Termination of the table body is by a *(end)* marker.
+
+Example:
+
+        The following table <Example NDBasic Table> is an example of
+        an basic style table.
+
+(start table "Example Basic Table", Caption, format=basic)
+
+    [Column Description  ]      [Column 2               [Column 3        ]
+
+    Row 1, column 1 text   xxx  Row 1, column 2 text    Row 1, column 3     ignored text
+  + additional text             additional text         addition text
+
+    Row 2, column 1 text        Row 2, column 2 text    Row 2, column 3
+    Row 3, column 1 text        Row 3, column 2 text    Row 3, column 3
+
+(end table)
+
+Source:
+
+>(start table "Example Basic Table", Caption, format=basic)
+>
+>   [Column Description  ]      [Column 2               [Column 3        ]
+>
+>   Row 1, column 1 text   xxx  Row 1, column 2 text    Row 1, column 3     ignored text
+> + additional text             additional text         addition text
+>
+>   Row 2, column 1 text        Row 2, column 2 text    Row 2, column 3
+>   Row 3, column 1 text        Row 3, column 2 text    Row 3, column 3     more ignored text
+>
+>(end)
+

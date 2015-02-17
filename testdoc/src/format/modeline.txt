@@ -1,0 +1,122 @@
+-ND- admonitions=no,prototypes=no,code=strict -ND-
+
+    Title:      Modelines
+
+        You can embed per file configuration details within an
+        individual source image to allow fine tunning of its
+        representation.
+
+                         ----------------------------
+
+    Topic:      Overview
+
+        Similar to many editors, including vim and Emacs a ND+ specific
+        modeline can be positioned within the first 5 lines or last 25
+        lines of the source file allowing specific file scope options
+        to be configured.
+
+        The general format of the modeline is a list of comma seperated
+        feature settings between a set of *-ND-* markers.
+
+    Example:
+(start code)
+
+        /* -ND- numericlists=no, bulletlists=no, indent=4 -ND- */
+
+(end code)
+
+      *Note:* 
+
+        Use within plain-text files have the additional requirement that
+        the -ND- marker *must* on an isolated line with only white-space
+        leading and/or trailing.
+
+                         ----------------------------
+
+     Topic:     Features
+
+        The following features for any given source image can be controlled
+        thru an embedded modeline. The purpose of this interface is to
+        allow work-arounds for issues within source documentation that can
+        not done by editing the original material.
+
+        naturaldocs=yes|no -    Enable/disable Natural Docs.
+
+        numericlists=yes|no -   Enable/disable numeric lists.
+
+        bulletlists=yes|no -    Enable/disable bullet lists.
+
+        deflists=yes|no -       Enable/disable definition lists.
+
+        leveling=yes|no -       Enable/disable automatic bullet/definition or
+                                numeric leveling.
+
+        prototypes=yes|no -     Enable/disable Prototype:/Synopsis:
+                                inlined prototypes topics.
+
+        admonitions=yes|no -    Enable/disable admonitions.
+
+        code=yes|no|strict  -   Enable (yes), disable(no) or enforce strict.
+
+
+     Strict Mode:
+
+        Then specified within a modeline using 'code=strict'; as on the
+        source of this page; inline code snippets are only parsed when
+        the leading character being one of *">, : or |"* is positioned
+        at the left edge of the line, Otherwise the text shall be
+        treated like a simple text line, for example
+
+        > Normal text
+
+>       Code text
+
+                         ----------------------------
+
+    Topic:      Emacs Emulation
+
+        In addition, *ND+* supports to number of emacs style modelines
+        allowing either of two normal forms:
+
+        You can specify the major mode for editing a given file by the
+        following special text in the first nonblank line of the file.
+        The modeline can be on the line by itself or surrounded by
+        comments. For example:
+
+>               -*-C++-*-
+
+        If the first line is the name of a recongnised style, such as
+        'perl' or 'C++', ND+ uses a language parser approapriate to the
+        mode. The above tells ND+ to use Lisp mode. Note how the
+        semicolon is used to make Lisp treat this line as a comment.
+        Such an explicit specification overrides any defaulting based
+        on the file name.
+
+        Another other supported format of the mode specification is an
+        explicit mode package:
+
+>               -*- mode: modename; -*-
+
+                         ----------------------------
+
+     Topics:    ModeLine Example
+
+        The source information of this document has the following ND
+        configuration, with the result following.
+
+>               -ND- admonitions=no,prototypes=no,code=strict -ND-
+
+
+        Prototype:
+
+           Now a normal topic.
+
+        Note!:
+
+           Now a normal topic!
+
+        | this is normal text, despite the leading *'|'* character.
+
+                         ----------------------------
+
+

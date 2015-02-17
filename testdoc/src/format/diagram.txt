@@ -1,0 +1,14 @@
+
+Section:        Diagrams
+
+        The following diagrams will explain all
+        
+        (see circuit.jpg)
+
+> Source:  (See circuit.jpg)
+
+
+        (see machine.jpg)
+
+> Source:  (See machine.jpg)
+

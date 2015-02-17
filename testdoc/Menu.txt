@@ -1,0 +1,143 @@
+Format: Development Release 7-18-2013 (1.4 base)
+
+
+Title: ND+ -
+SubTitle: Natural Docs Plus
+
+Footer: Copyright (c) 2007
+Timestamp: Generated on mon day, year
+#   m     - One or two digit month.  January is "1"
+#   mm    - Always two digit month.  January is "01"
+#   mon   - Short month word.  January is "Jan"
+#   month - Long month word.  January is "January"
+#   d     - One or two digit day.  1 is "1"
+#   dd    - Always two digit day.  1 is "01"
+#   day   - Day with letter extension.  1 is "1st"
+#   yy    - Two digit year.  2006 is "06"
+#   yyyy  - Four digit year.  2006 is "2006"
+#   year  - Four digit year.  2006 is "2006"
+
+PageFooter: 'To' 'send' 'feedback' 'on' 'this' 'topic' *email:* naturaldocsplus@gmail.com
+PageFooter: (c) 'Some' 'Rights' 'Reserved.' see <License>
+
+
+# --------------------------------------------------------------------------
+# 
+# Cut and paste the lines below to change the order in which your files
+# appear on the menu.  Don't worry about adding or removing files, Natural
+# Docs will take care of that.
+# 
+# You can further organize the menu by grouping the entries.  Add a
+# "Group: [name] {" line to start a group, and add a "}" to end it.
+# 
+# You can add text and web links to the menu by adding "Text: [text]" and
+# "Link: [name] ([URL])" lines, respectively.
+# 
+# The formatting and comments are auto-generated, so don't worry about
+# neatness when editing the file.  Natural Docs will clean it up the next
+# time it is run.  When working with groups, just deal with the braces and
+# forget about the indentation and comments.
+# 
+# --------------------------------------------------------------------------
+
+
+File: Introduction  (introduction.txt)
+
+Group: Format  {
+
+   File: Packages  (packages.txt)
+   File: Admonitions  (format\admonition.txt)
+   File: Code Snippets  (format\code.txt)
+   File: Bullet Lists  (format\bullets.txt)
+   File: Definition Lists  (format\definitions.txt)
+   File: Numbered Lists  (format\numbered.txt)
+   File: Prototypes  (format\prototype.txt)
+   File: Member documentation  (format\members.txt)
+   File: Page Footer  (format\pagefooter.txt)
+   File: Copyright Example  (copyright.txt)
+   File: Modelines  (format\modeline.txt)
+   File: Formatting  (format\markups.txt)
+   File: Diagrams  (format\diagram.txt)
+   File: Links  (format\links.txt)
+   }  # Group: Format
+
+Group: Tables  {
+
+   File: Tables  (table\table.txt)
+   File: ND Table Format  (table\table_format0.txt)
+   File: ND Basic Table Format  (table\table_format1.txt)
+   File: Simple Table Format  (table\table_format2.txt)
+   File: CSV Table Format  (table\table_format3.txt)
+   }  # Group: Tables
+
+Group: Plugins  {
+
+   File: Plugins  (plugin\plugins.txt)
+   File: Plugin Source Information  (plugin\source.txt)
+   File: Ditaa  (plugin\ditaa\ditaa.txt)
+   File: SyntaxHighlighter  (plugin\hilite\hilite.txt)
+   File: Mscgen  (plugin\mscgen\mscgen.txt)
+   File: SDEdit  (plugin\sdedit\sdedit.txt)
+
+   Group: SVG  {
+
+      File: Scalable Vector Graphics  (plugin\svg\svg\info.txt)
+      File: Demo  (plugin\svg\svg\demo.txt)
+      File: readme  (plugin\svg\svg\readme.txt)
+      File: Test  (plugin\svg\svg\test.txt)
+      }  # Group: SVG
+
+   File: PlantUML  (plugin\plantuml\plantuml.txt)
+   }  # Group: Plugins
+
+Group: Output Modes  {
+
+   File: ManDoc  (output\mandoc.txt)
+   File: AsciiDoc  (output\asciidoc.txt)
+   }  # Group: Output Modes
+
+Group: Perl Tests  {
+
+   File: PerlClassA  (perl\test1_base.pm)
+   File: PerlClassA::Parent  (perl\test1_root.pm)
+   File: PerlClassA::Child1  (perl\test1_child1.pm)
+   File: PerlClassA::Child2  (perl\test1_child2.pm)
+   File: PerlClassA::Child3  (perl\test1_child3.pm)
+   File: PerlClassA::Child4  (perl\test1_child4.pm)
+   }  # Group: Perl Tests
+
+Group: C Tests  {
+
+   File: Package1  (c\test1_pkg1.c)
+   File: Package2  (c\test1_pkg2.c)
+   File: Package3  (c\test1_pkg3.c)
+   }  # Group: C Tests
+
+Group: C++ Tests  {
+
+   File: EmptyClass  (cpp\weird.cpp)
+   File: Linkage  (cpp\linkage.cpp)
+   File: Microsoft  (cpp\funny.cpp)
+   File: Repeated  (cpp\repeat.cpp)
+   File: Stack  (cpp\stacktemplate.cpp)
+   File: String  (cpp\string.cpp)
+   File: UnnamedClass  (cpp\unnamed.cpp)
+   File: ClassA &amp; ClassB  (mixed\mixed.c)
+   }  # Group: C++ Tests
+
+Group: ActionScript Tests  {
+
+   File: Input  (actionscript\example1.as)
+   }  # Group: ActionScript Tests
+
+File: Natural Docs Resources  (resources.txt)
+
+Group: Index  {
+
+   Index: Everything
+   Class Index: Classes
+   Constant Index: Constants
+   Function Index: Functions
+   Type Index: Types
+   }  # Group: Index
+

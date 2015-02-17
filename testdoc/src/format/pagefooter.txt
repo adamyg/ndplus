@@ -1,0 +1,27 @@
+
+    Title:      Page Footer
+
+        You can set a global page footer which is appended to the end of each generated
+        page.
+
+    Example:
+
+        The page footer defined within 'Menu.txt' used during the generation of this
+        document is as follows:
+
+(quote)
+PageFooter: 'To' 'send' 'feedback' 'on' 'this' 'topic' *email:* nobody@earth.org
+PageFooter: <Copyright> (c) 'Some' 'rights' 'reserved.'
+(end)
+
+        This is an addition to the standard ND features of 'Footer' and 'Timestamp'
+        which are both also configured within 'Menu.txt':
+
+(quote)
+Footer: Copyright (c) 2007 Nobody.
+Timestamp: Generated on mon day, year
+(end code)
+
+
+
+

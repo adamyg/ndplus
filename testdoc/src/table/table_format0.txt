@@ -1,0 +1,238 @@
+
+Title:          ND Table Format
+
+        Following in the design spirit of Natural Docs this table format has a layout
+        within the original source files which shall read just as easily as the
+        generated documentation.
+
+
+Topic:          General syntax rules
+
+        o A new table body is introducted with the following marker;
+
+                *(start* *table* 'title' ',[caption]' ,'[options]' *)*
+
+        o Headers are defined with a leading *[* (open square bracket)
+        and closed using the *]* (close square bracket), which are
+        optional in most cases.
+
+        o Any text prior to first header or row definition shall be taken
+        as the summary, using within links descriptions.
+
+        o Rows are defined with a leading *!* (bang).
+
+        o Any additional text is appending to the current cell being
+        either a header or field, if any, with text outside a column
+        definition defined by the header *[..]* shall be ignored.
+
+        o Blank lines within a cell creates a new paragraph within the
+        current row.
+
+        o Termination of the table body is by a *(end)* marker.
+
+
+Example:
+
+        The following table <Example ND Table> is an example of an ND+ style table
+        which utilities the majority of available features -
+
+(start table "Example ND Table", Caption, format=nd)
+
+    This is an example of a ND style table
+
+    [Column Description         [Column 2               [Column 3        ]
+     with two lines
+
+ !  Row 1, column 1 text        Row 1, column 2 text    Row 1, column 3     ignored text
+
+ !  Row 2, column 1 text        Row 2, column 2 text    Row 2, column 3
+    continued on next line.
+                                New paragraph within
+                                same cell.
+
+ !  Row 3, column 1 text        Row 3, column 2 text    Row 3, column 3
+
+    New paragraph within same                                               more ignored text
+    cell.
+
+(end table)
+
+Source:
+
+>(start table "Example ND Table", Caption, format=nd)
+>
+>    This is an example of a ND style table
+>
+>    [Column Description         [Column 2               [Column 3        ]
+>     with two lines
+>
+> !  Row 1, column 1 text        Row 1, column 2 text    Row 1, column 3     ignored text
+>
+> !  Row 2, column 1 text        Row 2, column 2 text    Row 2, column 3
+>    continued on next line.
+>                                New paragraph within
+>                                same cell.
+>
+> !  Row 3, column 1 text        Row 3, column 2 text    Row 3, column 3     more ignored text
+>
+>    New paragraph within same
+>    cell.
+>
+>(end)
+
+
+Topic:          SubHeaders and markups
+
+        o Table cell text may have utilise most other ND markups, including;
+
+                o Links <Tables>.
+
+                o *bold*, _underline_ and 'italic' highlighting.
+
+                o Bullet and description lists.
+
+                o Embedded images ('see person.gif').
+
+        o Subheading are created by defining a new set of headers within an
+          existing table.
+
+
+Example:
+
+(start table Title1, Caption1)
+
+    [Column 1                       [Column 2                   [Column 3               ]
+
+!   Row *1*, column 1 text          Row 1, column 2 text        Row 1, column 3
+
+!   Row *2*, column 1 text          Row 2, column 2 text        Row 2, column 3
+    continued on next line.
+
+!   Row *3*, column 1 text          Row 3, column 2 text        Row 3, column 3
+
+!   Embedded images
+
+        (see person.gif)
+
+!    o bullet1                       item - desc1                1. desc1
+     o bullet2                       item - desc2                1. desc2
+     o bullet3                       item - desc3                1. desc3
+
+    [SubHeading                                                                         ]
+
+!   and lastly links work within
+    <Tables>
+
+
+    [SubHeading 1                               [SubHeading 2
+
+!   Sub-Column 1                                Sub-Column 2
+
+(end table)
+
+Source:
+
+>(start table Title1, Caption1)
+>    [Column 1                       [Column 2                   [Column 3              ]
+>
+> !  Row *1*, column 1 text          Row 1, column 2 text        Row 1, column 3
+>
+> !  Row *2*, column 1 text          Row 2, column 2 text        Row 2, column 3
+>    continued on next line.
+>
+> !  Row *3*, column 1 text          Row 3, column 2 text        Row 3, column 3
+>
+> !  Embedded images
+>
+>        (see person.gif)
+>
+> !   o bullet1                       item - desc1                1. desc1
+>     o bullet2                       item - desc2                1. desc2
+>     o bullet3                       item - desc3                1. desc3
+>
+>    [SubHeading                                                                         ]
+>
+> !  and lastly links work within
+>    <Tables>
+>
+>    [SubHeading 1                               [SubHeading 2
+>
+> !  Sub-Column 1                                Sub-Column 2
+>(end table)
+
+
+Topic:          Sub Tables
+
+        And last but not least it is possible to embed a table definition within a
+        cell; with a few minor limitations.
+
+(start table Title2, Caption2)
+    [Column 1                           [Column 2                               ]
+
+!   Row *1*, column 1 text              Row 1, column 2 text
+
+!   An embedded table                   2nd Embedded table
+
+    Inter tables are introduced using   Rows are implied, denoted by a
+    a double brackets ([[).             single blank line. As such cells
+                                        within inter-tables may only contain
+                                        a single paragraph.
+
+       [[col1    [col2      [col3          [[col1    [col2     [col3   ]
+
+       a1a       b1b        c1c            a1a       b1b       c1c
+
+       a2a       b2b        c2c            a2a       b2b       c2c
+
+       a3a       b3b        c3c            a3a       b3b       c3c
+
+!   Rows of an inter tables can also
+    be denoted using a leading (!!)
+    marker.
+
+       [[col1    [col2      [col3          [[col1    [col2     [col3 ]
+    !! a1a       b1b        c1c         !! a1a       b1b       c1c
+    !! a2a       b2b        c2c         !! a2a       b2b       c2c
+    !! a3a       b3b        c3c         !! a3a       b3b       c3c
+
+    [SubHeading 1                       [SubHeading 2                           ]
+
+!   New row
+(end table)
+
+Source:
+
+>(start table Title2, Caption2)
+>    [Column 1                           [Column 2                              ]
+>
+>!   Row *1*, column 1 text              Row 1, column 2 text
+>
+>!   An embedded table                   2nd Embedded table
+>
+>    Inter tables are introduced using   Rows are implied, denoted by a
+>    a double brackets '[['.             single blank line. As such cells
+>                                        within inter-tables may only contain
+>                                        a single paragraph.
+>
+>       [[col1    [col2      [col3          [[col1    [col2     [col3   ]
+>
+>       a1a       b1b        c1c            a1a       b1b       c1c
+>
+>       a2a       b2b        c2c            a2a       b2b       c2c
+>
+>       a3a       b3b        c3c            a3a       b3b       c3c
+>
+>!   Rows of an inter tables can also
+>    be denoted using a leading (!!)
+>    marker.
+>
+>       [[col1    [col2      [col3          [[col1    [col2     [col3 ]
+>    !! a1a       b1b        c1c         !! a1a       b1b       c1c
+>    !! a2a       b2b        c2c         !! a2a       b2b       c2c
+>    !! a3a       b3b        c3c         !! a3a       b3b       c3c
+>
+>    [SubHeading 1                       [SubHeading 2                          ]
+>
+>!   New row
+>(end table)
+

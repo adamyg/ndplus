@@ -1,0 +1,50 @@
+Title:          Simple Table Format
+
+        The table *Simple* or *wiki* format uses a similar syntax to
+        a number of Wiki's which is an effective yet easy method of
+        creating tables.
+
+
+Topic:          General syntax rules
+
+        o A new table body is introducted with the following marker;
+
+>               *(start* *table* '[title],' '[caption],' format=simple ',[options ..]' *)*
+
+        o wiki may be used as an alias, for example format=wiki
+
+        o Unless the option 'header=no' is given, the first line is
+             taken as the column headers.
+
+        o Column headers and cells are delimited using a pipe *|* character.
+
+        o All non-blank lines are taken as cell text, one line of text per-row.
+
+        o Termination of the table body is by a *(end)* marker.
+
+
+Example:
+
+        (start table Title, Caption, format=simple)
+        |Column 1| Column 2|Column 3|
+
+        |Row 1 column 1|Row 1, column 2|Row 1 column 3|
+
+        |Row 2 column 1|Row 2, column 2|Row 2 column 3
+
+        |Row 3 column 1|Row 3, column 2|Row 3 column 3|
+        (end table)
+
+
+Source:
+
+>       (start table Title, Caption, format=simple)
+>       |Column 1| Column 2|Column 3|
+>
+>       |Row 1 column 1|Row 1, column 2|Row 1 column 3|
+>
+>       |Row 2 column 1|Row 2, column 2|Row 2 column 3
+>
+>       |Row 3 column 1|Row 3, column 2|Row 3 column 3|
+>       (end table)
+

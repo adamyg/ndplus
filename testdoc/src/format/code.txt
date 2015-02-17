@@ -1,0 +1,150 @@
+                          ----------------------------
+
+Title:          Code Snippets
+
+        Code sections allow example code etc to be placed unprocessed within
+        the documentation.
+
+
+        There should not be a line below this text.
+
+                          ----------------------------
+
+(start code)
+
+        There should be a line below this text.
+
+                          ----------------------------
+
+(end code)
+
+                          ----------------------------
+
+Topic:          Marked regions
+
+    First form:
+
+        Start section using regions marked within ([start] code) .. (end [code]).
+
+        o example
+
+(start code)
+
+        Code snippet one ... (start code)/(end)
+
+(end)
+
+        o source
+
+>(start code)
+>
+>       Code snippet one ... (start code)/(end)
+>
+>(end)
+
+    Second form:
+
+        o example
+
+(code)
+
+        Code snippet two ... (code)/(end)
+
+(end)
+
+        o source
+
+>(code)
+>
+>       Code snippet two ... (code)/(end)
+>
+>(end)
+
+   Third form:
+
+        o example
+
+(code)
+
+        Code snippet three ... (code)/(end code)
+
+(end code)
+
+        o source
+
+>(code)
+>
+>       Code snippet three ... (code)/(end)
+>
+>(end code)
+
+
+                          ----------------------------
+
+Topic:          Line prefixes
+
+        Code sections using line prefixes *(>)*, *(|)* or *(:)* as the
+        first non whitespace character shall be treated in the same
+        fashion as '(code)/(end)' code snippets, examples.
+
+    First form:
+
+        o example
+
+>       Code snippet four ...
+
+        o source
+
+(code)
+>       Code snippet four ...
+(end)
+
+
+    Secord form:
+
+        o example
+
+|       Code snippet five ...
+
+        o source
+
+(code)
+|       Code snippet five ...
+(end)
+
+
+    Third form:
+
+        o example
+
+:       Code snippet six ...
+
+        o source
+
+(code)
+:       Code snippet six ...
+(end)
+
+
+                          ----------------------------
+
+Topic:          Quote regions
+
+        Similar to nature 'code sections' are 'quote regions' in that they
+        retain there line breaks, yet have an alternative stype applied.
+
+        There primary use is within <Admonitions>, allowing example text
+        not to be formatted.
+
+>(quote)
+>       This should be two lines ...
+>               and the second
+>(end)
+
+(quote)
+        This should be two *lines* ...
+                and the second
+(end)
+
+
+

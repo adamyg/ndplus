@@ -1,0 +1,385 @@
+
+    Title:      Numbered Lists
+
+        You can define a Numbered list by using the format below, specifically text
+        within a leading number. space followed by text.
+
+                                -------------------------
+
+    Topic:      Overview
+
+        This is a ND+ extension which also allows <Levelling>, <Continuation> and
+        <Mixed> usage with other ND constructs.
+
+        Like bullet and definition lists, you can have blank lines between them if you
+        want, subsequent lines dont have to be indented, and you end the list by
+        skipping a line and doing something else.
+
+        The numbers need not be sequentially numbered as the underlying ordered list
+        which is generated shall be Numbered started from one.
+
+    Source:
+(start code)
+        1. Numbered 1
+                Additional text
+
+                Additional paragraph
+
+        1. Numbered 2
+                Additional text
+
+        New paragraph
+
+        1. Numbered 1
+
+        1. Numbered 2
+(end code)
+
+    Result:
+        1. Numbered 1
+                Additional text
+
+                Additional paragraph
+
+        1. Numbered 2
+                Additional text
+
+        New paragraph
+
+        1. Numbered 1
+
+        1. Numbered 2
+
+                                -------------------------
+
+    Topic:      Levelling
+
+        Numbered lists can represent multiple levels of elements directed by the
+        indentation of each line, for example;
+
+    Source:
+(start code)
+        1. Numbered 1
+
+        1. Numbered 2
+
+                1. Numbered 2.1
+
+                        1. Numbered 2.1.1
+
+                        1. Numbered 2.1.2
+
+                1. Numbered 2.2
+
+                        1. Numbered 2.2.1
+
+                        1. Numbered 2.2.2
+
+        1. Numbered 3
+
+                1. Numbered 3.1
+
+                        1. Numbered 3.1.1
+        1. Numbered 4
+
+                1. Numbered 4.1
+(end code)
+
+    Result:
+        1. Numbered 1
+
+        1. Numbered 2
+
+                1. Numbered 2.1
+
+                        1. Numbered 2.1.1
+
+                        1. Numbered 2.1.2
+
+                1. Numbered 2.2
+
+                        1. Numbered 2.2.1
+
+                        1. Numbered 2.2.2
+
+        1. Numbered 3
+
+                1. Numbered 3.1
+
+                        1. Numbered 3.1.1
+
+        1. Numbered 4
+
+                1. Numbered 4.1
+
+        Start of normal paragraph resets indentation.
+
+                                -------------------------
+
+    Topic:      Manual Levelling
+
+        Unlike Bullet Lists and Definition Lists, numbered list allow manual leveling
+        by means of a dot notation represents the desired structure. 
+
+        Note that once a dotted list is encountered, automatic leveling for
+        the duration of the list shall be disabled.
+
+    Source:
+(start code)
+        1. Numbered 1
+
+        1. Numbered 2
+
+                Additional text for Numbered 2
+
+                More text for Numbered 2
+
+        1.1. Numbered 2.1
+
+        1.1.1. Numbered 2.1.1
+
+                Additional text for Numbered 2.1.1
+
+                More text for Numbered 2.1.1
+
+        1.1.1. Numbered 2.1.2
+
+        1.1.1.1. Numbered 2.2.2.1
+
+        1.1.1.1. Numbered 2.2.2.2
+
+
+        1. Numbered 3
+
+        1.1. Numbered 3.1
+
+        1.1.1. Numbered 3.1.1
+
+        1. Numbered 4
+
+        1.1. Numbered 4.1
+(end code)
+
+    Result:
+        1. Numbered 1
+
+        1. Numbered 2
+
+                Additional text for Numbered 2
+
+                More text for Numbered 2
+
+        1.1. Numbered 2.1
+
+        1.1.1. Numbered 2.1.1
+
+                Additional text for Numbered 2.1.1
+
+                More text for Numbered 2.1.1
+
+        1.1.1. Numbered 2.1.2
+
+        1.1.1.1. Numbered 2.2.2.1
+
+        1.1.1.1. Numbered 2.2.2.2
+
+
+        1. Numbered 3
+
+        1.1. Numbered 3.1
+
+        1.1.1. Numbered 3.1.1
+
+        1. Numbered 4
+
+        1.1. Numbered 4.1
+
+                                -------------------------
+
+    Topic:      Continuation
+
+        Numbered list content maybe stated over a number of lines. Text which is line
+        seperated and indented by one shall be taken as a continuation of the Numbered
+        definition and added as a seperate paragraph, for example.
+
+    Source:
+(start code)
+         1. Numbered 1
+         1. Numbered 2
+
+                Additional text for Numbered 2
+
+                More text for Numbered 2
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                                More text for Numbered 2.1.1
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+                         1. Numbered 2.2.2
+         1. Numbered 3
+                 1. Numbered 3.1
+                         1. Numbered 3.1.1
+         1. Numbered 4
+                 1. Numbered 4.1
+(end code)
+
+    Result:
+         1. Numbered 1
+         1. Numbered 2
+
+                 Additional text for Numbered 2
+
+                 More text for Numbered 2
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                                More text for Numbered 2.1.1
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+                         1. Numbered 2.2.2
+         1. Numbered 3
+                 1. Numbered 3.1
+                         1. Numbered 3.1.1
+         1. Numbered 4
+                 1. Numbered 4.1
+
+    Notes:
+        One should be aware that during list formatting an incorrect decrease in
+        indentation restarts in the indentation logic closing the related list which may
+        product unexpected results, for example;
+
+    Source:
+(start code)
+         1. Numbered 1
+         1. Numbered 2
+
+                 Additional text for Numbered 2
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                    More text for Numbered 2.1.1 <= wrong indentation resets the list
+                        depth t 1. zer 1. closing the current list definition and
+                        starting a new paragraph.
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+         1. Numbered 3
+(end code)
+
+    Result:
+         1. Numbered 1
+         1. Numbered 2
+
+                 Additional text for Numbered 2
+
+                 More text for Numbered 2
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                    More text for Numbered 2.1.1 <= wrong indentation resets the list
+                        depth t 1. zer 1. closing the current list definition and
+                        starting a new paragraph.
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+                         1. Numbered 2.2.2
+         1. Numbered 3
+                 1. Numbered 3.1
+                         1. Numbered 3.1.1
+         1. Numbered 4
+                 1. Numbered 4.1
+
+
+        You may also note that is this reset affect disallows additional paragraphs to
+        be appended once sub items have been encountered.
+
+        Both the reset logic and the inablity to append are currently by design.
+
+                                -------------------------
+
+    Topic:      Mixed
+
+        Numbered lists can be mixed within other ND list constructs. The definitions must
+        be line seperated and indented by one t 1. be associated.
+
+    Source:
+(start code)
+         1. Numbered 1
+         1. Numbered 2
+
+                 Additional text for Numbered 2
+
+                 item 2.1 -      item description
+                 item 2.2 -      item description
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                                item 2.1.1 -    item description
+                                item 2.1.2 -    item description
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+                         1. Numbered 2.2.2
+         1. Numbered 3
+                 1. Numbered 3.1
+                         1. Numbered 3.1.1
+         1. Numbered 4
+                 1. Numbered 4.1
+
+        Start of normal paragraph resets indentation.
+(end code)
+
+    Result:
+         1. Numbered 1
+         1. Numbered 2
+                 
+                 Additional text for Numbered 2
+
+                 item 2.1 -      item description
+                 item 2.2 -      item description
+
+                 1. Numbered 2.1
+                         1. Numbered 2.1.1
+
+                                Additional text for Numbered 2.1.1
+
+                                item 2.1.1 -    item description
+                                item 2.1.2 -    item description
+
+                         1. Numbered 2.1.2
+                 1. Numbered 2.2
+                         1. Numbered 2.2.1
+                         1. Numbered 2.2.2
+         1. Numbered 3
+                 1. Numbered 3.1
+                         1. Numbered 3.1.1
+         1. Numbered 4
+                 1. Numbered 4.1
+
+        Start of normal paragraph resets indentation.
+
+                                -------------------------
+

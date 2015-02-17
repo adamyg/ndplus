@@ -1,0 +1,55 @@
+
+    Title:      Member documentation
+
+        For languages with Full Language Support (e.g. C and C++) you may document
+        members and parameters by placing a documentation block after the member
+        instead of before.
+
+        For this you have to put an additional < marker in the comment block.
+
+     Examples:
+
+>               int var;        /*!< Description after the member */
+
+        This block can be used to put a Qt style detailed documentation block after a
+        member. Other ways to do the same are:
+
+>               int var;        /**< Description after the member */
+
+        or
+
+>               int var;        //!< Description after the member
+>                               //!< 
+
+        or
+
+>               int var;        ///< Description after the member
+>                               ///< 
+
+        Note that these blocks have the same structure and meaning as an explicit topic
+        within comment blocks in the previous section only the < indicates that the
+        member is located in front of the block instead of after the block.
+
+        Here is an example of mixed usage:
+
+(start example)
+        /**
+         *      MyClass
+         */
+        class MyTest {
+        public:
+                /** An enum type,
+                 *      The following is an eumeration
+                 */
+                enum MyEnum {
+                        int eval1,      /*!< enum value 1 */
+                        int eval2,      /*!< enum value 2 */
+                        int eval3,      /*!< enum value 3 */
+                };
+
+                void member();          //!< a member function
+    
+        protected:
+                int value;              /*!< an integer value */
+        };
+(end example)

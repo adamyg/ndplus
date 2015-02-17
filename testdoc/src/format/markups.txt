@@ -1,0 +1,183 @@
+
+Title:          Formatting
+
+        You can add basic markups by using the following formats.
+
+
+Topic:          Text markups
+
+        The design spirit of Natural Docs is that document layout within
+        the original source files which shall generally read just as easily
+        as the generated documentation.
+
+        The standard ND markups are available plus a number of extensions
+        including 'italic' and ~~strikethrough~~.
+
+   Example:
+(start code)
+        *Bold text*
+
+        _Underlined text_
+
+        Paragraphs are broken by skipping lines. So the two lines above
+        each have their own paragraph, but these three lines are all part
+        of the same one.
+(end code)
+
+   Result:
+        *Bold text*
+
+        _Underlined text_
+
+        Paragraphs are broken by skipping lines. So the two lines above
+        each have their own paragraph, but these three lines are all part
+        of the same one.
+
+                      ----------------------------
+
+Topic:          Text Markups
+
+        The total set of ND markups and extensions are;
+
+    Quoted:
+
+        > this line should contain standard text.
+
+      *Result*
+
+        this line should contain standard text.
+
+                            -----------------
+    Bold:
+
+        > *this* *line* *should* *contain* *bold* *text*.
+
+      *Result*
+
+        *this* *line* *should* *contain* *bold* *text*.
+
+                            -----------------
+    Italic:
+
+        > 'this' 'line' 'should' 'contain' 'italic' 'text'.
+
+      *Result*
+
+        'this' 'line' 'should' 'contain' 'italic' 'text'.
+
+                            -----------------
+    Quoted:
+
+        > "this line should contain quoted text".
+
+      *Result*
+
+        "this line should contain quoted text".
+
+                            -----------------
+    Strikethrough:
+
+        > ~~this line should contain Strikethrough/deleted text~~.
+
+      *Result*
+
+        ~~this line should contain Strikethrough/deleted text~~.
+
+
+                      ----------------------------
+
+Topic:          Possible Additions
+
+        In addition to the above, the following are being considered
+        as future enhancements; following *AsciiDoc* and several Wiki's.
+
+                            -----------------
+
+        > {{this line should contain monospaced text}}.
+
+    Result:
+
+        {{this line would contain monospaced text}}.
+
+
+        > ??citation??
+
+                            -----------------
+
+    Result:
+
+        -- citation.
+
+                            -----------------
+
+        > *_underlined and bold_*
+
+
+    Result:
+
+        *_underlined and bold_*
+
+                            -----------------
+
+        > *'underlined and italic'*
+
+
+    Result:
+
+        *'underlined and italic'*
+
+                            -----------------
+
+        > ^^superscript^^
+
+    Result:
+
+        ^^superscript^^
+
+                            -----------------
+
+        > ,,subscript,,
+
+    Result:
+
+        ,,superscript,,
+
+
+        Finally a strict markup mode is being considered
+        'markup=strict' (See: <Modelines>) requiring the use of
+        double leading and trailing *[ ' * _ ]* characters for italic, 
+        bold and underlined text; bring *ND+* inline with a number of
+        wiki's.
+
+                      ----------------------------
+
+    Topic:      Specials
+
+        A number of automatic special character conversions shall
+        occur when their text equivilent is used;
+
+                            -----------------
+
+        > (c) Copyright.
+
+    Result:
+        (c) Copyright.
+
+                            -----------------
+
+        > (tm) Trademark.
+
+    Result:
+        (tm) Trademark.
+
+                            -----------------
+
+        > (r) Registered.
+
+    Result:
+        (r) Registered.
+
+                            -----------------
+
+
+

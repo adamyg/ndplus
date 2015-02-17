@@ -1,0 +1,286 @@
+
+    Title:      Bullet Lists
+        
+        You can add bullet lists by starting a line one of the following four
+        characters seperated by a space;
+
+        o dash (-)
+
+        o asterisk (*), 
+
+        o o (o)
+      
+        o plus (+).
+
+                                -------------------------
+
+    Topic:      Overview
+
+        The standard ND bullet syntax is supported plus a number of extensions
+        including <Levelling>, <Continuation> and <Mixed> usage.
+
+        Bullets can have blank lines between them if you want, and subsequent lines
+        dont have to be indented. You end a list by skipping a line and doing something
+        else.
+
+    Source:
+(start code)
+        - Bullet one.
+        - Bullet two.
+          Bullet two continued.
+        - Bullet three.
+
+        Some text after the bullet list.
+
+        o Spaced bullet one.
+
+        o Spaced bullet two.
+          Spaced bullet two continued.
+
+        o Spaced bullet three.
+
+        Some text after the spaced bullet list.
+(end code)
+
+    Result:
+        * Bullet one.
+        * Bullet two.  Bullet two continued.
+        * Bullet three.
+
+        Some text after the bullet list.
+
+        * Spaced bullet one.
+        * Spaced bullet two.  Spaced bullet two continued.
+        * Spaced bullet three.
+
+        Some text after the spaced bullet list.
+
+                                -------------------------
+
+    Topic:      Levelling
+
+        Bullet lists can represent multiple levels of elements directed by the
+        indentation of each line, for example;
+
+    Source:
+(start code)
+        o bullet 1
+        o bullet 2
+                o bullet 2.1
+                        o bullet 2.1.1
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+(end code)
+
+    Result:
+        o bullet 1
+        o bullet 2
+                o bullet 2.1
+                        o bullet 2.1.1
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+
+        Start of normal paragraph resets indentation.
+
+                                -------------------------
+
+    Topic:      Continuation
+
+        Bullet list content maybe stated over a number of lines. Text which is line
+        seperated and indented by one shall be taken as a continuation of the bullet
+        definition and added as a seperate paragraph, for example.
+
+    Source:
+(start code)
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                More text for bullet 2
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+ 
+                                More text for bullet 2.1.1
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+(end code)
+
+    Result:
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                More text for bullet 2
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+ 
+                                More text for bullet 2.1.1
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+
+    Notes:
+        One should be aware that during list formatting an incorrect decrease in
+        indentation restarts in the indentation logic closing the related list which may
+        product unexpected results, for example;
+
+    Source:
+(start code)
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+ 
+                    More text for bullet 2.1.1 <= wrong indentation resets the list 
+                        depth to zero closing the current list definition and 
+                        starting a new paragraph.
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+        o bullet 3
+(end code)
+
+    Result:
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                More text for bullet 2
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+
+                    More text for bullet 2.1.1 <= wrong indentation resets the list 
+                        depth to zero closing the current list definition and 
+                        starting a new paragraph.
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+
+
+        You may also note that is this reset affect disallows additional paragraphs to
+        be appended once sub items have been encountered.
+
+        Both the reset logic and the inablity to append are currently by design.
+
+                                -------------------------
+
+    Topic:      Mixed
+
+        Bullet lists can be mixed within other ND list constructs. The definitions must
+        be line seperated and indented by one to be associated.
+
+    Source:
+(start code)
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                item 2.1 -      item description
+                item 2.2 -      item description
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+
+                                item 2.1.1 -    item description
+                                item 2.1.2 -    item description
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+
+        Start of normal paragraph resets indentation.
+(end code)
+
+    Result:
+        o bullet 1
+        o bullet 2
+
+                Additional text for bullet 2
+
+                item 2.1 -      item description
+                item 2.2 -      item description
+
+                o bullet 2.1
+                        o bullet 2.1.1
+
+                                Additional text for bullet 2.1.1
+
+                                item 2.1.1 -    item description
+                                item 2.1.2 -    item description
+
+                        o bullet 2.1.2
+                o bullet 2.2
+                        o bullet 2.2.1
+                        o bullet 2.2.2
+        o bullet 3
+                o bullet 3.1
+                        o bullet 3.1.1
+        o bullet 4
+                o bullet 4.1
+
+        Start of normal paragraph resets indentation.
+
+                                -------------------------

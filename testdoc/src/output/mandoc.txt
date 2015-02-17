@@ -1,0 +1,41 @@
+Title:          ManDoc
+
+   Overview:
+
+        'mandoc' is a suite of tools compiling mdoc, the roff macro
+        language of choice for BSD manual pages, and man, the
+        predominant historical language for UNIX manuals. It is small, 
+        ISO C, ISC-licensed, and quite fast.
+
+        The main component of the toolset is the mandoc utility
+        program, based on the libmandoc validating compiler, to
+        format output for UNIX terminals (with support for
+        wide-character locales), XHTML, HTML, PostScript, and PDF.
+
+        mandoc has predominantly been developed on OpenBSD and is
+        both an OpenBSD and a BSD.lv project. We strive to support
+        all interested free operating systems, in particular
+        DragonFly, NetBSD, FreeBSD, Minix 3, and GNU/Linux, as well
+        as all systems running the pkgsrc portable package build
+        system.
+
+        Site, http://mdocml.bsd.lv
+
+   Usage:
+
+        Example NaturalDocs command line usage
+
+>           NaturalDocs <options> -o ManDoc ./doc/mandoc -p ./doc <source>
+
+        Generates MANDOC markup'ed versions within the directory
+        './doc/mandoc'.
+
+   Limitations:
+
+        The following features are not supported by the mandoc format.
+
+          o Graph images, excluding plugin generated images which have
+                an ASCII representation (for example <Ditaa>).
+
+                    --------------------------------
+

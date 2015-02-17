@@ -1,0 +1,33 @@
+Title:          Scalable Vector Graphics
+
+Topic:          Introduction
+
+    Demo of ASCII art to Scalable Vector Graphics (SVG)
+
+    Hacking on NaturalDocs to make SVG output -- Why?
+
+    I started using NaturalDocs for documenting my FPGA designs. It's useful
+    to do timing diagrams and logic diagram in amongst the comments. Doing
+    ASCII art is all very well, but some pretty pictures go down a lot better :-)
+
+    So I hacked together an ASCII art to SVG converter, inspired by AAFigure
+    which does a similar job in Python.
+
+    It's still a work in progress, especially the logic gates type stuff, but
+    the timing diagram part is usable.
+
+    You can see the sample output here and the input data used to create it.
+
+    And if you'd like to see the code in all it's glory (it's still in a
+    debugging state so be kind :-), it's all zipped up here. Be aware, it's
+    written by someone who hasn't written Perl for a few years, so if some of
+    it reads like Python that's because that's mostly what I write SW in
+    these days. Unless it's embedded C, but I can't imagine writing an app
+    like this in C!
+
+    Hopefully one day the code will make it into NaturalDocs proper.
+
+    Source -    http://www.pointy.plus.com/naturaldocs_svg/
+
+    Author -    martinthompson@users.sourceforge.net
+

@@ -1,0 +1,100 @@
+Title:          Tables
+
+        Tables may be embedded within topic bodies.
+
+Topic:          Introduction
+
+        Similar to embedded code snippets and text diagrams you can create complex
+        table structures using the generalised syntax as follows:
+
+>(start table Title, Caption [,options])
+>
+>       --- table body ----
+>
+>(end table)
+
+
+Example:
+
+(start table "My Test Table", "Tables make stuff easy to read")
+
+    Basic planet details
+
+    [Planet     [Distance from  [Radius     [Year Length    [Day Length     [Moons
+                 the sun (km)   (km)        (days)          (days)
+
+!   Mercury     57,909,175      2,439.64    88              58              0
+!   Venus       108,208,930     6,051.59    225             225             0
+!   Earth       149,597,870     6,378.15    365             1               1
+!   Mars        227,936,640     3,397.00    687             1               2
+!   Jupitar     778,412,010     71,492.68   4,344           0.40            63
+!   Saturn      1,426,725,400   60,267.14   10,768          0.40            57
+!   Uranus      2,870,972,200   25,557.25   30,660          0.70            27
+!   Neptune     4,498,252,900   24,766.36   60,150          0.65            13
+
+(end table)
+
+Topic:          Formats
+
+        ND+ supports a number of different table formatting styles for the table body,
+        the default being *nd*:
+
+                o simple -      <Simple Table Format>.
+
+                o nd -          <ND Table Format>.
+
+                o basic -       <ND Basic Table Format>.
+
+                o csv -         <CSV Table Format>.
+
+
+Options:
+
+        The following style options are available allowing aspects of the table import
+        format and/or output layout to be controlled:
+
+        format=type -           Input style, where 'type' is one of the following:
+
+                nd -            Default, ND+ style <ND Table Format>.
+
+                simple -        Pipe seperated values <Simple Table Format>.
+
+                csv -           Comma seperated values <CSV Table Format>.
+
+                wiki -          Reserved for future development.
+
+
+        delimiter=char -        Delimiter override.
+
+                For *simple* formatted tables, allows an alternative to pipe (|), which
+                may be any non whitespace character.
+
+                For *nd* formatted tables, allows an alternative to bang (!) as a row
+                delimiter and which may be any non-whitespace character except *[* and
+                *]*. Note, for normal treatment of the '[' character escape using '\['.
+
+                For *csv* formatted tables, allows an alternative to a comma (, ), 
+                which may be any non whitespace character except single quote ('), 
+                double quote (") and brackets ({) and (}).
+
+
+        header=no -             Disables header generation in *simple* and *csv*
+                                formatted tables.
+
+
+        link=no -               Disable links (i.e. <text>) within the table cell text
+                                from being processed.
+
+
+        border=type -           Override the default border type using
+                                one of 'none', 'single' or 'double'.
+
+
+        frame=type -            Override the default cell frame type using
+                                one of 'none', 'single' or 'double'.
+
+Note:   Unknown options shall be ignored.
+
+
+
+

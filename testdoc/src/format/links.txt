@@ -1,0 +1,48 @@
+
+    Title:      Links
+
+        *email:* <nobody@earth.org>
+
+> Source:       *email:* nobody@earth.org
+
+
+        <http://earth.org>
+
+> Source:       http://earth.org
+
+
+
+        <https://earth.org>
+
+> Source:       https://earth.org
+
+
+
+        <ftp://earth.org>
+
+> Source:       ftp://earth.org
+
+
+
+        <news://earth.org>
+
+> Source:       news://earth.org
+
+
+
+        <file://earth.org>
+
+> Source:       file://earth.org
+
+
+
+        <Linked Text>
+
+> Source:       <Linked Text>
+
+    Title:      Linked Text 
+
+        blah blah ...
+    
+
+

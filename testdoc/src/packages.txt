@@ -1,0 +1,102 @@
+
+Title:          Packages
+
+        *ND+* has new features and options to deal with packages which are
+        split across a number of source files.
+
+Title:          Topic Options
+
+        The following topic options define the behaviour when multiple
+        topics referencing the same name are encountered within seperate
+        source pages (e.g. a header and its related source).
+
+        Natural Docs default behaviour is that each reference to deal with
+        in isolation.
+
+        When enabled by topic, ND+ shall collect together all references
+        and generated the desired output.
+
+(code)
+Source: topics.txt
+
+# Multiple: [Normal|Summaries|Merge|Split]
+#    Controls how components contained within a definition of a package/class 
+#    are handled when they are encountered spanning multiple source images. 
+#    Defaults to normal.
+#
+#      normal        - No action is performed (ie. Natural Docs standard).
+#
+#      summaries     - A compound summary is generated within the determined
+#                      primary definition linking all components. **
+#
+#      merge         - All class components are merged into a single output
+#                      image using the primary as a template.
+#
+#      split         - Firstly a merge is performed and then all components
+#                      with a 'splittable: yes' attribute are placed within
+#                      their own output image.  In addition a compound summary
+#                      is generated within the primary definition linking all
+#                      components.
+#
+#    Note: 'primary definitions' is the first topic encountered which 
+#       contains a description; other topic's referencing the same package 
+#       name should generally not contain text to avoid confusion.
+#
+# Splittable: [yes|no]
+#    Whether items under this topic can be split into seperate images during
+#    a 'Multiple: Split' action. Defaults to 'no'.
+#
+# Merge Groupings: [yes|no]
+#    Whether multiple groups of this topic should be merged into a single group.
+#    Defaults to 'no'.
+#
+# Sort Groupings: [yes|no]
+#    Whether the items under this topic should be sorted alphabetically. 
+#    Defaults to 'no'.
+#
+# Summaries: [yes|no]
+#    Whether this topic and is items should be included within the generated
+#    summary. Defaults to 'yes'.
+
+(end)
+
+        An example usage, the following is the content of the project
+        specific 'Topics.txt'.
+
+(code)
+        Alter Topic Type: Class
+
+                Multiple: Merge
+
+
+        Alter Topic Type: Function
+
+                Merge Groupings: Yes
+                Sort Groupings: Yes
+                Splittable: Yes
+
+                Add Keywords:
+                operator, operators
+
+
+        Alter Topic Type: Type
+
+                Merge Groupings: Yes
+                Sort Groupings: Yes
+                Splittable: Yes
+
+
+        Alter Topic Type: Constant
+
+                Merge Groupings: Yes
+                Sort Groupings: Yes
+(end)
+
+
+
+
+
+
+
+        
+

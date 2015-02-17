@@ -1,0 +1,92 @@
+
+Title:          PlantUML
+
+Topic:          Introduction
+
+        PlantUML diagrams are defined by marked regions.
+
+        PlantUMLis a Java component that allows you to quickly write.
+
+           o Sequence diagram.
+           o Use case diagram.
+           o Class diagram.
+           o Activity diagram.
+           o Component diagram.
+           o State diagram.
+           o Object diagram.
+           o Wireframe graphical interface.
+
+        http://plantuml.sourceforge.net/
+
+   Usage:
+
+        Diagrams are defined using a simple and intuitive language.
+
+        The following examples are taken from the current PlantUML
+        Language Refererence Guide.
+
+         http://plantuml.sourceforge.net/PlantUML_Language_Reference_Guide.pdf
+
+   Examples:
+
+(start plantuml)
+        Alice ->  Bob: Authentication Request
+        Bob   --> Alice: Authentication Response
+        Alice ->  Bob: Another authentication Request
+        Alice <-- Bob: another authentication Response
+(end plantuml)
+
+   Source:
+
+>(start plantuml)
+>
+>       Alice ->  Bob: Authentication Request            
+>       Bob   --> Alice: Authentication Response         
+>       Alice ->  Bob: Another authentication Request    
+>       Alice <-- Bob: another authentication Response   
+>
+>(end plantuml)
+
+(start plantuml)
+        :Main Admin: as Admin
+        (Use the application) as (Use)
+        User -> (Start)
+        User --> (Use)
+        Admin ---> (Use)
+
+        note right of Admin : This is an example.
+
+        note right of (Use)
+
+        A note can also
+        be on several lines
+        end note
+
+        note "This note is connected\nto several objects." as N2
+        (Start) .. N2
+        N2 .. (Use)
+(end plantuml)
+
+   Source:
+
+>(start plantuml)
+>       :Main Admin: as Admin
+>       (Use the application) as (Use)
+>       User -> (Start)
+>       User --> (Use)
+>       Admin ---> (Use)
+>
+>       note right of Admin : This is an example.
+>
+>       note right of (Use)
+>
+>       A note can also
+>       be on several lines
+>       end note
+>
+>       note "This note is connected\nto several objects." as N2
+>       (Start) .. N2
+>       N2 .. (Use)
+>(end plantuml)
+ 
+    
