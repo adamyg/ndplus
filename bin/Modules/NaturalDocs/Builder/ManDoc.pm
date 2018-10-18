@@ -1337,7 +1337,8 @@ sub ContentList         #(body, type, [option])
         {                                               # ordered list
         my $ol = 0;
         sub OL {
-            return " ".++$ol.". ".shift @_."<br>";
+            my $arg = shift @_;
+            return " ".++$ol.". ".$arg."<br>";
             }
         $body =~ s/<li>(.*?)<\/li>/OL($1)/ge;
         }
