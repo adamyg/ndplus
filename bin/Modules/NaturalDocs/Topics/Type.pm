@@ -9,7 +9,7 @@
 ###############################################################################
 
 # This file is part of Natural Docs, which is Copyright (C) 2003-2005 Greg Valure
-# ND+, Copyright (c) Adam Young
+# ND+ extensions, Copyright (C) 2007-2022 Adam Young
 # Natural Docs is licensed under the GPL
 
 use strict;

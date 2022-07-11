@@ -20,7 +20,7 @@
 ###############################################################################
 
 # This file is part of Natural Docs, which is Copyright (C) 2003-2008 Greg Valure
-# ND+ extensions, Copyright (C) 2007-2015 Adam Young
+# ND+ extensions, Copyright (C) 2007-2022 Adam Young
 # Natural Docs is licensed under the GPL
 
 use NaturalDocs::Parser::ParsedFile;            #ND+, package/modeline

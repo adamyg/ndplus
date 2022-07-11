@@ -1,10 +1,10 @@
 Format: Development Release 7-18-2013 (1.4 base)
 
 
-Title: ND+ -
+Title: ND++ -
 SubTitle: Natural Docs Plus
 
-Footer: Copyright (c) 2007
+Footer: Copyright (c) 2022
 Timestamp: Generated on mon day, year
 #   m     - One or two digit month.  January is "1"
 #   mm    - Always two digit month.  January is "01"
@@ -55,10 +55,15 @@ Group: Format  {
    File: Member documentation  (format\members.txt)
    File: Page Footer  (format\pagefooter.txt)
    File: Copyright Example  (copyright.txt)
+
+   Group: Standard Features  {
+
+      File: Formatting  (format\markups.txt)
+      File: Diagrams  (format\diagram.txt)
+      File: Links  (format\links.txt)
+      }  # Group: Standard Features
+
    File: Modelines  (format\modeline.txt)
-   File: Formatting  (format\markups.txt)
-   File: Diagrams  (format\diagram.txt)
-   File: Links  (format\links.txt)
    }  # Group: Format
 
 Group: Tables  {

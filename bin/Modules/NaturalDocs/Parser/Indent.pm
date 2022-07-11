@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-# This file is part of Natural Docs. Copyright 2012-2015 Adam Young
+# This file is part of Natural Docs. Copyright 2012-2022 Adam Young
 # Natural Docs is licensed under the GPL
 
 use strict;

@@ -31,7 +31,7 @@ Title:          Introduction
 
 Topic:          ND+ - The extended Natural Docs package
 
-        Copyright (c) 2007-2013 Adam Young.
+        Copyright (c) 2007-2022 Adam Young.
 
         http://sourceforge.net/projects/ndplus/
 
@@ -117,7 +117,7 @@ Topic:          License
         *ND+* is licensed under the GPL-2.0, the same terms and
         conditions as 'Natural Docs 1.4'.
 
-        *ND+*, 'Copyright (C) 2007-2013 Adam Young'
+        *ND+*, 'Copyright (C) 2007-2022 Adam Young'
         http://ndplus.sourceforge.net/
 
         *Natural Docs*, 'Copyright (C) 2003-2008 Greg Valure'

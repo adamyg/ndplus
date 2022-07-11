@@ -12,7 +12,7 @@
 ###############################################################################
 
 # This file is part of Natural Docs, which is Copyright (C) 2003-2008 Greg Valure
-# Copyright (C) 2014-2015 Adam Young
+# Copyright (C) 2014-2022 Adam Young
 # Natural Docs is licensed under the GPL
 
 use Tie::RefHash;

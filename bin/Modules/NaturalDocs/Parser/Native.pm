@@ -11,7 +11,7 @@
 ###############################################################################
 
 # This file is part of Natural Docs, which is Copyright (C) 2003-2008 Greg Valure
-# Portions Copyright (C) 2008-2015 Adam Young
+# Portions Copyright (C) 2008-2022 Adam Young
 # Natural Docs is licensed under the GPL
 
 use NaturalDocs::Parser::Table;
